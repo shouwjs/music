@@ -2,6 +2,7 @@ import { Player, type GuildQueueEvent, type ExtractorExecutionContext } from 'di
 import { DefaultExtractors } from '@discord-player/extractor';
 import { Commands } from './Commands';
 import { Log } from 'youtubei.js';
+import { YoutubeiExtractor } from 'discord-player-youtubei';
 import type { CommandData, ManagerOptions } from '../typings';
 import type { ShouwClient } from 'shouw.js';
 Log.setLevel(Log.Level.NONE);
@@ -22,6 +23,7 @@ export class Manager {
         this.#client.music = this;
         this.#cmd = new Commands(this, this.options.events);
         this.loadMulti(DefaultExtractors);
+        this.register(YoutubeiExtractor, {});
     }
 
     public command(data: CommandData): Manager {

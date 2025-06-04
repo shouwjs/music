@@ -6,15 +6,7 @@
     "type": "commonjs",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "keywords": [
-        "discord.js",
-        "aoi.js",
-        "shouw.js",
-        "bdfd",
-        "music",
-        "discord",
-        "bot"
-    ],
+    "keywords": ["discord.js", "aoi.js", "shouw.js", "bdfd", "music", "discord", "bot"],
     "scripts": {
         "build": "tsc -p tsconfig.json",
         "dev": "node dist/__test__"
@@ -26,13 +18,13 @@
     },
     "devDependencies": {
         "@biomejs/biome": "^1.9.4",
-        "discord-player-youtubei": "^1.4.6",
         "shouw.js": "github:shouwjs/shouw.js",
         "typescript": "^5.8.3"
     },
     "dependencies": {
         "@discord-player/extractor": "^7.1.0",
         "discord-player": "^7.1.0",
+        "discord-player-youtubei": "^1.4.6",
         "ffmpeg-static": "^5.2.0"
     },
     "repository": {
@@ -42,11 +34,7 @@
     "bugs": {
         "url": "https://github.com/shouwjs/music/issues"
     },
-    "files": [
-        "dist",
-        "README.md",
-        "LICENSE"
-    ],
+    "files": ["dist", "README.md", "LICENSE"],
     "engines": {
         "node": ">=20.x"
     }

@@ -17,6 +17,7 @@ const discord_player_1 = require("discord-player");
 const extractor_1 = require("@discord-player/extractor");
 const Commands_1 = require("./Commands");
 const youtubei_js_1 = require("youtubei.js");
+const discord_player_youtubei_1 = require("discord-player-youtubei");
 youtubei_js_1.Log.setLevel(youtubei_js_1.Log.Level.NONE);
 class Manager {
     constructor(options = {}) {
@@ -32,6 +33,7 @@ class Manager {
         __classPrivateFieldGet(this, _Manager_client, "f").music = this;
         __classPrivateFieldSet(this, _Manager_cmd, new Commands_1.Commands(this, this.options.events), "f");
         this.loadMulti(extractor_1.DefaultExtractors);
+        this.register(discord_player_youtubei_1.YoutubeiExtractor, {});
     }
     command(data) {
         this.cmd?.add(data);
