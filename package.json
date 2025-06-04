@@ -1,0 +1,53 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "name": "shouw.music",
+    "version": "0.0.1",
+    "description": "A music extension for Shouw.js",
+    "type": "commonjs",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "keywords": [
+        "discord.js",
+        "aoi.js",
+        "shouw.js",
+        "bdfd",
+        "music",
+        "discord",
+        "bot"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "dev": "node dist/__test__"
+    },
+    "author": "Tyowk <tyowk@outlook.com>",
+    "license": "Apache-2.0",
+    "publishConfig": {
+        "provenance": true
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^1.9.4",
+        "discord-player-youtubei": "^1.4.6",
+        "shouw.js": "github:shouwjs/shouw.js",
+        "typescript": "^5.8.3"
+    },
+    "dependencies": {
+        "@discord-player/extractor": "^7.1.0",
+        "discord-player": "^7.1.0",
+        "ffmpeg-static": "^5.2.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shouwjs/music.git"
+    },
+    "bugs": {
+        "url": "https://github.com/shouwjs/music/issues"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "engines": {
+        "node": ">=20.x"
+    }
+}
