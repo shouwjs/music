@@ -1,17 +1,17 @@
-import { type ShouwClient, type InteractionWithMessage, Context, Interpreter, Collective } from 'shouw.js';
+import { type ShouwClient, Interpreter, Collective } from 'shouw.js';
 import { join } from 'node:path';
-import type { Manager } from './Manager';
+import type { ShouwMusic } from './ShouwMusic';
 import type { Channel, Guild, GuildMember, User } from 'discord.js';
 import { type GuildQueue, GuildQueueEvent } from 'discord-player';
 import type { CommandData } from '../typings';
 
 export class Commands {
     [key: string]: any;
-    public readonly manager: Manager;
+    public readonly manager: ShouwMusic;
     public readonly client: ShouwClient | undefined;
     public readonly events: string[] = [];
 
-    constructor(manager: Manager, events: string[] | GuildQueueEvent[] | undefined) {
+    constructor(manager: ShouwMusic, events: string[] | GuildQueueEvent[] | undefined) {
         this.manager = manager;
         this.client = manager.client;
         this.client?.functions.load(join(__dirname, '..', 'functions'), this.client?.shouwOptions.debug ?? false);
@@ -56,15 +56,6 @@ export class Commands {
                                         code: cmd.channel
                                     },
                                     {
-                                        context: new Context(
-                                            {
-                                                channel,
-                                                guild,
-                                                user: author,
-                                                member
-                                            } as InteractionWithMessage,
-                                            []
-                                        ),
                                         client: this.client as ShouwClient,
                                         channel: channel ?? void 0,
                                         args: [],
@@ -92,15 +83,6 @@ export class Commands {
                     await new Interpreter(
                         cmd,
                         {
-                            context: new Context(
-                                {
-                                    channel,
-                                    guild,
-                                    user: author,
-                                    member
-                                } as InteractionWithMessage,
-                                []
-                            ),
                             client: this.client as ShouwClient,
                             channel: channel ?? void 0,
                             args: [],

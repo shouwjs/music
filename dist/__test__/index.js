@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const shouw_js_1 = require("shouw.js");
 const __1 = require("..");
 // initialize the music manager
-const music = new __1.Manager({
+const music = new __1.ShouwMusic({
     events: [__1.Events.PlayerStart]
 });
 // initialize the client instance
@@ -16,6 +16,7 @@ const client = new shouw_js_1.ShouwClient({
     intents: ['Guilds', 'GuildMessages', 'GuildVoiceStates', 'GuildMembers', 'MessageContent'],
     events: ['messageCreate']
 });
+// trackStart event
 music.command({
     type: __1.Events.PlayerStart,
     channel: '$channelId',

@@ -7,7 +7,7 @@ import type { CommandData, ManagerOptions } from '../typings';
 import type { ShouwClient } from 'shouw.js';
 Log.setLevel(Log.Level.NONE);
 
-export class Manager {
+export class ShouwMusic {
     #player?: Player;
     #client?: ShouwClient;
     #cmd?: Commands;
@@ -17,26 +17,27 @@ export class Manager {
         this.#options = options;
     }
 
-    public initialize(client: ShouwClient) {
+    public initialize(client: ShouwClient): ShouwMusic {
         this.#player = new Player(client, this.options);
         this.#client = client;
         this.#client.music = this;
         this.#cmd = new Commands(this, this.options.events);
         this.loadMulti(DefaultExtractors);
-        this.register(YoutubeiExtractor, {});
+        this.register(YoutubeiExtractor, this.options?.youtube ?? {});
+        return this;
     }
 
-    public command(data: CommandData): Manager {
+    public command(data: CommandData): ShouwMusic {
         this.cmd?.add(data);
         return this;
     }
 
-    public register(extractor: any, options: any): Manager {
+    public register(extractor: any, options: any): ShouwMusic {
         this.extractors?.register(extractor, options);
         return this;
     }
 
-    public loadMulti(extractors: any[]): Manager {
+    public loadMulti(extractors: any[]): ShouwMusic {
         this.extractors?.loadMulti(extractors);
         return this;
     }

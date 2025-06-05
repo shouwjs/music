@@ -61,12 +61,6 @@ _Commands_instances = new WeakSet(), _Commands_bindEvents = function _Commands_b
                         type: 'parsing',
                         code: cmd.channel
                     }, {
-                        context: new shouw_js_1.Context({
-                            channel,
-                            guild,
-                            user: author,
-                            member
-                        }, []),
                         client: this.client,
                         channel: channel ?? void 0,
                         args: [],
@@ -88,12 +82,6 @@ _Commands_instances = new WeakSet(), _Commands_bindEvents = function _Commands_b
                 guild = queue.guild;
             await this.manager.player?.context.provide({ guild }, async () => {
                 await new shouw_js_1.Interpreter(cmd, {
-                    context: new shouw_js_1.Context({
-                        channel,
-                        guild,
-                        user: author,
-                        member
-                    }, []),
                     client: this.client,
                     channel: channel ?? void 0,
                     args: [],

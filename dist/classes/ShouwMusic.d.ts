@@ -2,13 +2,13 @@ import { Player, type GuildQueueEvent, type ExtractorExecutionContext } from 'di
 import { Commands } from './Commands';
 import type { CommandData, ManagerOptions } from '../typings';
 import type { ShouwClient } from 'shouw.js';
-export declare class Manager {
+export declare class ShouwMusic {
     #private;
     constructor(options?: ManagerOptions);
-    initialize(client: ShouwClient): void;
-    command(data: CommandData): Manager;
-    register(extractor: any, options: any): Manager;
-    loadMulti(extractors: any[]): Manager;
+    initialize(client: ShouwClient): ShouwMusic;
+    command(data: CommandData): ShouwMusic;
+    register(extractor: any, options: any): ShouwMusic;
+    loadMulti(extractors: any[]): ShouwMusic;
     get cmd(): Commands | undefined;
     get options(): ManagerOptions;
     get connectOptions(): ManagerOptions['connectOptions'];

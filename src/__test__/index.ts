@@ -1,9 +1,9 @@
 // importing the modules
 import { ShouwClient } from 'shouw.js';
-import { Manager, Events } from '..';
+import { ShouwMusic, Events } from '..';
 
 // initialize the music manager
-const music = new Manager({
+const music = new ShouwMusic({
     events: [Events.PlayerStart]
 });
 
